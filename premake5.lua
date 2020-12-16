@@ -3,6 +3,8 @@
     - Blossom_Gui / Does the porting part as a example the RmlUI and Nuklear implementation is going to be here.
     - Blossom_Render / Does the rendering stuff
     --]]
+include "scripts/diligent.lua"
+
 workspace "Blossom"
     location "Generated"
 
@@ -41,16 +43,9 @@ project "Blossom_Render"
 
    kind "StaticLib"
 
-   loadDiligent();
+   loadDiligent()
 
    files "src/render/**"
 
 
-function loadDiligent()
-
-    libdirs "lib"
-    
-    links {"DiligentCore", "GenericCodeGend", "HLSLd", "MachineIndependentd", "OGLCompilerd", "OSDependentd", "spirv-cross-cored", "SPIRV-Tools-opt", "SPIRV-Tools", "SPIRVd"}
-
-end
 
