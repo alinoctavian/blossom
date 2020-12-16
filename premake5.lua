@@ -14,8 +14,8 @@ workspace "Blossom"
 
     configurations { "Debug", "Release" }
 
-    
     includedirs {"include", "src"}
+    
 
 project "Blossom_Editor"
 
