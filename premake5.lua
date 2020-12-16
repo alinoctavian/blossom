@@ -1,7 +1,7 @@
    --[[
-    This needs to be extended
-
-    - Use custom functions to load the DiligentEngine
+    - Blossom_Engine / Does the engine stuff , as a example math functions are going to be here
+    - Blossom_Gui / Does the porting part as a example the RmlUI and Nuklear implementation is going to be here.
+    - Blossom_Render / Does the rendering stuff
     --]]
 workspace "Blossom"
     location "Generated"
@@ -12,11 +12,12 @@ workspace "Blossom"
 
     configurations { "Debug", "Release" }
 
+    
+    includedirs {"include", "src"}
+
 project "Blossom_Editor"
 
     kind "ConsoleApp"
-
-    includedirs {"include", "src/engine", "src/gui"}
 
     links {"Blossom_Engine", "Blossom_Gui"}
 
@@ -26,22 +27,30 @@ project "Blossom_Engine"
 
     kind "StaticLib"
 
-    includedirs {"include", "src/engine", "src/gui"}
-
-    libdirs "lib"
-    
-    links {"DiligentCore", "GenericCodeGend", "HLSLd", "MachineIndependentd", "OGLCompilerd", "OSDependentd", "spirv-cross-cored", "SPIRV-Tools-opt", "SPIRV-Tools", "SPIRVd"}
-
     files "src/engine/**"
 
 project "Blossom_Gui"
 
     kind "StaticLib"
 
-    includedirs {"include", "src/engine", "src/gui"}
+    includedirs {"include", "src"}
 
     files "src/gui/**"
 
+project "Blossom_Render"
+
+   kind "StaticLib"
+
+   loadDiligent();
+
+   files "src/render/**"
 
 
+function loadDiligent()
+
+    libdirs "lib"
+    
+    links {"DiligentCore", "GenericCodeGend", "HLSLd", "MachineIndependentd", "OGLCompilerd", "OSDependentd", "spirv-cross-cored", "SPIRV-Tools-opt", "SPIRV-Tools", "SPIRVd"}
+
+end
 
