@@ -1,14 +1,7 @@
 # blossom
-A 3D Game Engine
+3D Game Engine in Beef
 
 
 
 
-# Libraries:
-- Diligent
-- Nuklear 
-- RmlUI
-- Flatbuffers
-- ReactPhysics3D
-- CoreCLR
-- 7Zip
+TODO
